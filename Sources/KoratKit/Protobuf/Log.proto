@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+message Log {
+  enum LogLevel {
+    TRACE = 0;
+    DEBUG = 1;
+    INFO = 2;
+    NOTICE = 3;
+    WARNING = 4;
+    ERROR = 5;
+    CRITICAL = 6;
+  }
+
+  message Source {
+    string file = 1;
+    string function = 2;
+    int32 line = 3;
+  }
+
+  string message = 1;
+  double time = 2;
+  LogLevel level = 3;
+  Source source = 4;
+}
